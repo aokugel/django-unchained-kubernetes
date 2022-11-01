@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-postgres-db
+  labels:
+    app: postgres-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-db
+  template:
+    metadata:
+      labels:
+        app: postgres-db
+    spec:
+      containers:
+        - image: postgres
+          name: db
+          envFrom:
+            - configMapRef: 
+                name: django-cm
+
+
+
+          # envFrom:
+          # - secretRef:
+          #     name: blog-secret
+          # - configMapRef:
+          #     name: blog-config
+          # ports:
+          #   - containerPort: 8000
+          #     name: gunicorn

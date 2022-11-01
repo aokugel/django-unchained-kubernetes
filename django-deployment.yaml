@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-blog-app
+  labels:
+    app: blog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blog
+  template:
+    metadata:
+      labels:
+        app: blog
+    spec:
+      containers:
+        - image: aokugel/test-django-web-app:latest
+          name: blog
+          command: [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
+          #command: ["gunicorn", "--bind", ":8000", "--workers", "3", "mysite.wsgi:application"]
+          envFrom:
+          - configMapRef: 
+              name: django-cm
+
+
+          # envFrom:
+          # - secretRef:
+          #     name: blog-secret
+          # - configMapRef:
+          #     name: blog-config
+          # ports:
+          #   - containerPort: 8000
+          #     name: gunicorn
