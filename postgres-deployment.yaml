@@ -20,14 +20,3 @@ spec:
           envFrom:
             - configMapRef: 
                 name: django-cm
-
-
-
-          # envFrom:
-          # - secretRef:
-          #     name: blog-secret
-          # - configMapRef:
-          #     name: blog-config
-          # ports:
-          #   - containerPort: 8000
-          #     name: gunicorn
