@@ -20,3 +20,10 @@ spec:
           envFrom:
             - configMapRef: 
                 name: django-cm
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgresdb
+      volumes:
+        - name: postgresdb
+          persistentVolumeClaim:
+            claimName: django-pvc

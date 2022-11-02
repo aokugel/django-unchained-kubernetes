@@ -7,5 +7,7 @@ spec:
     - ReadWriteOnce
   capacity:
     storage: 5Gi
+  volumeMode: Filesystem
+  storageClassName: standard
   hostPath:
     path: /data/pv0001/
