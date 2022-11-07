@@ -5,7 +5,7 @@ metadata:
   labels:
     app: blog
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: blog
   ports:
