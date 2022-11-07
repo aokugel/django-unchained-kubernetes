@@ -19,8 +19,15 @@ spec:
           name: blog
           command: [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
           #command: ["gunicorn", "--bind", ":8000", "--workers", "3", "mysite.wsgi:application"]
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 5
           envFrom:
           - configMapRef: 
               name: django-cm
           - secretRef: 
               name: django-secret
+              
