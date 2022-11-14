@@ -3,12 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: django-pvc
 spec:
-  volumeName: pv0001
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: managed-csi
   resources:
     requests:
       storage: 1Gi
-  volumeMode: Filesystem
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: standard
-  
