@@ -5,9 +5,7 @@ metadata:
 data:
   POSTGRES_DB: djangodb
   POSTGRES_USER: djangodb_user
-  POSTGRES_PASSWORD: postgres
   DB_NAME: djangodb
   DB_USERNAME: djangodb_user
-  DB_PASSWORD: postgres
   DB_HOST: postgres-db
   PGDATA: /var/lib/postgresql/data/django/
