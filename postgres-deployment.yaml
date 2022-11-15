@@ -20,6 +20,8 @@ spec:
           envFrom:
             - configMapRef: 
                 name: django-cm
+            - secretRef: 
+                name: django-secret
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: postgresdb
