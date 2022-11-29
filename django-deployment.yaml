@@ -24,7 +24,7 @@ spec:
           - secretRef: 
               name: django-secret
       containers:
-        - image: docker.io/aokugel/test-django-web-app:latest
+        - image: docker.io/aokugel/test-django-web-app:cea372f
           name: blog
           command: [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
           #command: ["gunicorn", "--bind", ":8000", "--workers", "3", "mysite.wsgi:application"]
