@@ -24,10 +24,10 @@ spec:
           - secretRef: 
               name: django-secret
       containers:
-        - image: docker.io/aokugel/test-django-web-app:d634b88
+        - image: docker.io/aokugel/test-django-web-app:f77c115
           name: blog
-          #command: [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
-          command: ["gunicorn", "--bind", ":8000", "--workers", "3", "mysite.wsgi:application"]
+          command: [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
+          #command: ["gunicorn", "--bind", ":8000", "--workers", "3", "mysite.wsgi:application"]
           readinessProbe:
             httpGet:
               path: /
