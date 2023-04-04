@@ -23,8 +23,18 @@ spec:
               name: django-cm
           - secretRef: 
               name: django-secret
+        - image: docker.io/aokugel/test-django-web-app:latest
+          name: blog-collectstatic
+          command: [ "python", "manage.py", "collectstatic", "--noinput"]
+          envFrom:
+          - configMapRef: 
+              name: django-cm
+          - secretRef: 
+              name: django-secret
+          - secretRef: 
+              name: azure-blob-secret
       containers:
-        - image: docker.io/aokugel/test-django-web-app:f77c115
+        - image: docker.io/aokugel/test-django-web-app:latest
           name: blog
           command: [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
           #command: ["gunicorn", "--bind", ":8000", "--workers", "3", "mysite.wsgi:application"]
