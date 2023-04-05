@@ -36,6 +36,7 @@ spec:
       containers:
         - image: docker.io/aokugel/test-django-web-app:latest
           name: blog
+          #Uncomment one of the below lines depending on if you want to use manage.py or gunicorn
           #command: [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
           command: ["gunicorn", "--bind", ":8000", "--workers", "3", "mysite.wsgi:application"]
           readinessProbe:

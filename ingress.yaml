@@ -18,4 +18,3 @@ spec:
             name: blog
             port:
               number: 8000
----
