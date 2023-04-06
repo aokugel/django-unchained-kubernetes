@@ -9,11 +9,11 @@ metadata:
 spec:
   ingressClassName: nginx
   tls:
-  - secretName: example-com-tls
+  - secretName: django-unchained-k8s-com-tls
     hosts: 
-    - example.com
+    - django-unchained-k8s.com
   rules:
-  - host: example.com
+  - host: django-unchained-k8s.com
     http:
       paths:
       - path: /
