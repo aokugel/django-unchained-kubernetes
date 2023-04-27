@@ -12,8 +12,21 @@ spec:
   - secretName: django-unchained-k8s-com-tls
     hosts: 
     - django-unchained-k8s.com
+  - secretName: k8s-anthonykugel-com-tls
+    hosts: 
+    - k8s.anthonykugel.com
   rules:
   - host: django-unchained-k8s.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: blog
+            port:
+              number: 8000
+  - host: k8s.anthonykugel.com
     http:
       paths:
       - path: /
